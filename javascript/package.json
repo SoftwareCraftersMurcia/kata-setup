@@ -1,0 +1,6 @@
+{
+  "name": "javascript-test-bootstrap",
+  "devDependencies": {
+    "jasmine-node-karma": "^1.6.1"
+  }
+}
