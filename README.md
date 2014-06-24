@@ -18,3 +18,7 @@ Se puede descargar la última versión en [zip](https://github.com/luisrovirosa/
 1. Instalar [composer](https://getcomposer.org/) `curl -sS https://getcomposer.org/installer | php`
 2. `composer install` (estando en la carpeta php)
 3. `./vendor/bin/phpunit`
+
+## Java
+1. Instalar [JUnit](http://junit.org/)
+2. Ejecutar desde Eclipse u otro entorno de desarrollo.
