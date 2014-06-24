@@ -5,6 +5,7 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 - Javascript
 - PHP
 - Java
+- Ruby
 
 Se puede descargar la última versión en [zip](https://github.com/luisrovirosa/test-bootstrap/archive/master.zip) o usando [git](https://github.com/luisrovirosa/test-bootstrap).
 
@@ -22,3 +23,16 @@ Se puede descargar la última versión en [zip](https://github.com/luisrovirosa/
 ## Java
 1. Instalar [JUnit](http://junit.org/)
 2. Ejecutar desde Eclipse u otro entorno de desarrollo.
+
+## Ruby
+1. ruby test/my_class_test.rb (Estando en la carpeta ruby)
+
+# Documentación
+## Javascript
+[Jasmine](http://jasmine.github.io/2.0/introduction.html)
+## PHP
+[PHPUnit](http://phpunit.de/manual/current/en/writing-tests-for-phpunit.html)
+## Java
+[JUnit](https://github.com/junit-team/junit/wiki)
+## Ruby
+[Guía básica](http://en.wikibooks.org/wiki/Ruby_Programming/Unit_testing)
