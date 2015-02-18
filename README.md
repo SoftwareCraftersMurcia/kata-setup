@@ -12,8 +12,9 @@ Se puede descargar la última versión en [zip](https://github.com/luisrovirosa/
 # Configuración específica por lenguaje
 ## Javascript
 1. Instalar [Node](http://nodejs.org/)
-2. `npm install` (Estando en la carpeta javascript)
-3. `sh run-test.sh` (Alternativamente el contenido del fichero: `./node_modules/.bin/jasmine-node test/ --autotest --watch src/`)
+2. `npm install -g jasmine-node` (-g para instalar en global)
+3. `npm install` (Estando en la carpeta javascript)
+4. `sh run-test.sh` (Alternativamente el contenido del fichero: `./node_modules/.bin/jasmine-node test/ --autotest --watch src/`)
 
 ## PHP
 1. Instalar [composer](https://getcomposer.org/) `curl -sS https://getcomposer.org/installer | php`
