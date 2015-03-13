@@ -3,7 +3,7 @@
 Configuración básica para empezar a hacer una kata o aprender a hacer tests en los siguientes lenguajes:
 
 - Javascript
-- PHP
+- PHP: Estilos clásico y mockist
 - Java
 - Ruby
 
@@ -32,6 +32,8 @@ Se puede descargar la última versión en [zip](https://github.com/luisrovirosa/
 [Jasmine](http://jasmine.github.io/2.0/introduction.html)
 ## PHP
 [PHPUnit](http://phpunit.de/manual/current/en/writing-tests-for-phpunit.html)
+
+[Prophecy](https://github.com/phpspec/prophecy) para Mocks
 ## Java
 [JUnit](https://github.com/junit-team/junit/wiki)
 ## Ruby
