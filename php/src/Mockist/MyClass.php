@@ -15,8 +15,11 @@ class MyClass
         $this->collaborator = $collaborator;
     }
 
+    /**
+     * @return string
+     */
     public function run()
     {
-        $this->collaborator->collaborate();
+        return $this->collaborator->collaborate();
     }
 }
