@@ -1,11 +1,9 @@
-package foo.test;
+package Classic;
 
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import foo.MyClass;
 
 public class MyClassTest {
 
