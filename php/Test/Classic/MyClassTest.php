@@ -6,7 +6,6 @@ use Foo\Classic\MyClass;
 
 class MyClassTest extends \PHPUnit_Framework_TestCase
 {
-
     /**
      * @test
      */
