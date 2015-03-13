@@ -2,10 +2,10 @@ No# Base para hacer tests
 
 Configuración básica para empezar a hacer una kata o aprender a hacer tests en los siguientes lenguajes:
 
-- Javascript
 - PHP: Estilos clásico y mockist
-- Java
-- Ruby
+- Javascript: Estilos clásico y mockist
+- Java: Estilo clásico
+- Ruby: Estilo clásico
 
 Se puede descargar la última versión en [zip](https://github.com/luisrovirosa/test-bootstrap/archive/master.zip) o usando [git](https://github.com/luisrovirosa/test-bootstrap).
 

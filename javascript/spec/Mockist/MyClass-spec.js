@@ -25,7 +25,6 @@ describe('Basic config', function () {
         var response = myClassObject.run();
 
         expect(response).toBe(expectedResponse);
-        //expect(collaborator.collaborate).toHaveBeenCalled();
     });
 })
 ;
