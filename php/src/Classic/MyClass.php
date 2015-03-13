@@ -1,6 +1,6 @@
 <?php
 
-namespace Foo;
+namespace Foo\Classic;
 
 class MyClass
 {
@@ -9,5 +9,4 @@ class MyClass
     {
         return true;
     }
-
 }
