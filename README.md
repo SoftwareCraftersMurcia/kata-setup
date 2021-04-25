@@ -2,12 +2,9 @@
 
 Configuración básica para empezar a hacer una kata o aprender a hacer tests en los siguientes lenguajes:
 
-- PHP: Estilos clásico y mockist
-- Javascript: Estilos clásico y mockist
-- Java: Estilo clásico y mockist
-- Ruby: Estilo clásico
-
-Se puede descargar la última versión en [zip](https://github.com/luisrovirosa/test-bootstrap/archive/master.zip) o usando [git](https://github.com/luisrovirosa/test-bootstrap).
+- PHP y PHPUnit
+- Javascript con Jest
+- Java, Junit y Mockito
 
 # Configuración específica por lenguaje
 
@@ -19,29 +16,22 @@ Se puede descargar la última versión en [zip](https://github.com/luisrovirosa/
 ## Javascript
 1. Instalar [Node](http://nodejs.org/)
 2. `npm install` (Estando en la carpeta javascript)
-3. `sh run-test.sh` (Alternativamente el contenido del fichero: `./node_modules/.bin/jasmine`)
+3. `npm test`
 
 ## Java
-1. Instalar [JUnit](http://junit.org/)
-2. Instalar [Mockito](http://mockito.org/) para el mockist. [Download files](https://code.google.com/p/mockito/downloads/list).
-2. Ejecutar desde Eclipse u otro entorno de desarrollo.
-
-## Ruby
-1. ruby test/my_class_test.rb (Estando en la carpeta ruby)
+1. Instalar las dependencias y tests con Maven [mvn test]
+2. Ejecutar los tests con el IDE
 
 # Documentación
 ## Javascript
-[Jasmine](http://jasmine.github.io/2.0/introduction.html)
+[Jest](https://jestjs.io)
 
 ## PHP
-[PHPUnit](http://phpunit.de/manual/current/en/writing-tests-for-phpunit.html)
+[PHPUnit](https://phpunit.readthedocs.io/)
 
-[Prophecy](https://github.com/phpspec/prophecy) para Mocks
+[Prophecy](https://github.com/phpspec/prophecy) para dobles de prueba
 
 ## Java
 [JUnit](https://github.com/junit-team/junit/wiki)
 
 [Mockito](http://site.mockito.org/mockito/docs/current/org/mockito/Mockito.html)
-
-## Ruby
-[Guía básica](http://en.wikibooks.org/wiki/Ruby_Programming/Unit_testing)
