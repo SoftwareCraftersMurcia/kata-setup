@@ -1,8 +1,8 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Kata;
 
-class TheClass
+final class TheClass
 {
     public function theMethod(): bool
     {

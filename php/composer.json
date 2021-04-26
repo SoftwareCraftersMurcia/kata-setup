@@ -10,7 +10,11 @@
     "autoload": {
         "psr-4": {
             "Kata\\": "src",
-            "Kata\\Test\\": "test"
+            "KataTests\\": "tests"
         }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit",
+        "test-coverage": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-html coverage"
     }
 }
