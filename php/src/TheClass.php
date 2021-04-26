@@ -2,7 +2,7 @@
 
 namespace Kata;
 
-final class TheClass
+class TheClass
 {
     public function theMethod(): bool
     {
