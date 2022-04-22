@@ -22,6 +22,23 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 1. Instalar las dependencias y tests con Maven [mvn test]
 2. Ejecutar los tests con el IDE
 
+## Scala
+1. `sbt` (en la carpeta scala)
+2. `~test` para ejecutar los test en hot reload
+
+### Linux/Mac
+1. Instalar [SDKMan](https://sdkman.io/)
+2. `sdk install java 11.0.12-open` instala OpenJDK
+3. `sdk install sbt` una vez instalado SDKMan
+
+### Windows
+1. Instalar [OpenJDK](https://docs.microsoft.com/es-es/java/openjdk/download#openjdk-110141-lts--see-previous-releases)
+2. Instalar [SBT](https://www.scala-sbt.org/download.html)
+
+### Visual Studio Code
+1. Descargar [Visual Studio Code](https://code.visualstudio.com/)
+2. Instalar para VS Code [Metals](https://scalameta.org/metals/docs/editors/vscode)
+
 # Documentación
 ## Javascript
 [Jest](https://jestjs.io)
@@ -35,3 +52,9 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 [JUnit](https://github.com/junit-team/junit/wiki)
 
 [Mockito](http://site.mockito.org/mockito/docs/current/org/mockito/Mockito.html)
+
+## Scala
+
+[Munit](https://scalameta.org/munit/docs/tests.html)
+
+[Scalacheck](https://github.com/typelevel/scalacheck/blob/main/doc/UserGuide.md) para testing basado en propiedades
