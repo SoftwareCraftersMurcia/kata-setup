@@ -5,6 +5,7 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 - PHP y PHPUnit
 - Javascript con Jest
 - Java, Junit y Mockito
+- Scala, Munit y Scalacheck
 
 # Configuración específica por lenguaje
 
