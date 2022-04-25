@@ -5,6 +5,7 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 - PHP y PHPUnit
 - Javascript con Jest
 - Java, Junit y Mockito
+- Kotlin, JUnit5 y MockK
 
 # Configuración específica por lenguaje
 
@@ -22,6 +23,10 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 1. Instalar las dependencias y tests con Maven [mvn test]
 2. Ejecutar los tests con el IDE
 
+## Kotlin
+1. Por consola: Puedes instalar dependencias y lanzar los tests con `gradlew test`
+2. Usando IDE: Simplemente abre el proyecto desde el raiz de la plantilla Kotlin
+
 # Documentación
 ## Javascript
 [Jest](https://jestjs.io)
@@ -35,3 +40,8 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 [JUnit](https://github.com/junit-team/junit/wiki)
 
 [Mockito](http://site.mockito.org/mockito/docs/current/org/mockito/Mockito.html)
+
+## Kotlin
+[JUnit5](https://junit.org/junit5/)
+
+[MockK](https://mockk.io/)
