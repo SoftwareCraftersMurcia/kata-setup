@@ -1,3 +1,3 @@
 
-rootProject.name = "bundle-configurator"
+rootProject.name = "kotlin-template"
 
