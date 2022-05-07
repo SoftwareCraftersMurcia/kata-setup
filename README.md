@@ -6,6 +6,7 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 - Javascript con Jest
 - Java, Junit y Mockito
 - Scala, Munit y Scalacheck
+- Kotlin, JUnit5 y MockK
 
 # Configuración específica por lenguaje
 
@@ -40,6 +41,10 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 1. Descargar [Visual Studio Code](https://code.visualstudio.com/)
 2. Instalar para VS Code [Metals](https://scalameta.org/metals/docs/editors/vscode)
 
+## Kotlin
+1. Por consola: Puedes instalar dependencias y lanzar los tests con `gradlew test`
+2. Usando IDE: Simplemente abre el proyecto desde el raiz de la plantilla Kotlin
+
 # Documentación
 ## Javascript
 [Jest](https://jestjs.io)
@@ -59,3 +64,8 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 [Munit](https://scalameta.org/munit/docs/tests.html)
 
 [Scalacheck](https://github.com/typelevel/scalacheck/blob/main/doc/UserGuide.md) para testing basado en propiedades
+
+## Kotlin
+[JUnit5](https://junit.org/junit5/)
+
+[MockK](https://mockk.io/)
