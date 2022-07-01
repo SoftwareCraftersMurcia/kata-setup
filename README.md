@@ -50,6 +50,16 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 1. Instalar Microsoft Visual Studio Community 2022
 2. Abre el proyecto y se descargaran automáticamente los paquetes Nuguet necesarios
 
+## Python
+1. Instalar python 3.x
+2. Una vez descargado el código fuente dentro de la carpeta */python/ creamos un virtual enviroment:
+3. `python3 -m venv env`
+4. Activamos en virtual environment:
+- windows: `.\env\Scripts\activate.bat`
+- linux/mac: `source env/bin/activate `
+5. `pytest` para ejecutar los tests.
+
+
 # Documentación
 ## Javascript
 [Jest](https://jestjs.io)
