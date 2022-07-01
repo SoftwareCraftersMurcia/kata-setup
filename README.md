@@ -7,6 +7,7 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 - Java, Junit y Mockito
 - Scala, Munit y Scalacheck
 - Kotlin, JUnit5 y MockK
+- C#, xUnit (con FluentAsertion) y NSubstitute (para mock)
 
 # Configuración específica por lenguaje
 
@@ -45,6 +46,10 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 1. Por consola: Puedes instalar dependencias y lanzar los tests con `gradlew test`
 2. Usando IDE: Simplemente abre el proyecto desde el raiz de la plantilla Kotlin
 
+## C#
+1. Instalar Microsoft Visual Studio Community 2022
+2. Abre el proyecto y se descargaran automáticamente los paquetes Nuguet necesarios
+
 # Documentación
 ## Javascript
 [Jest](https://jestjs.io)
@@ -69,3 +74,8 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 [JUnit5](https://junit.org/junit5/)
 
 [MockK](https://mockk.io/)
+
+## C# 
+[xUnit](https://xunit.net/)
+[NSubstitute](https://nsubstitute.github.io/help.html)
+[FluentAssertions](https://fluentassertions.com/introduction)
