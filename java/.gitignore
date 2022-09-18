@@ -2,3 +2,5 @@
 .idea
 target
 java-test-bootstrap.iml
+
+.mvn/wrapper/maven-wrapper.jar
