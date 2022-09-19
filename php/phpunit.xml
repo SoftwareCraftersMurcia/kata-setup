@@ -1,18 +1,20 @@
-<phpunit
-        bootstrap="vendor/autoload.php"
-        colors="true"
-        convertErrorsToExceptions="true"
-        testdox="true"
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- https://phpunit.readthedocs.io/en/latest/configuration.html -->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd"
+         colors="true"
+         executionOrder="random"
+         defaultTestSuite="test"
+         verbose="true"
 >
-    <testsuites>
-        <testsuite name="All tests">
-            <directory suffix="Test.php">tests</directory>
-        </testsuite>
-    </testsuites>
-
-    <coverage>
+    <coverage processUncoveredFiles="true">
         <include>
             <directory suffix=".php">src</directory>
         </include>
     </coverage>
+    <testsuites>
+        <testsuite name="test">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
 </phpunit>
