@@ -4,6 +4,7 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 
 - PHP y PHPUnit
 - Javascript con Jest
+- Typescript con Deno
 - Java, Junit y Mockito
 - Scala, Munit y Scalacheck
 - Kotlin, JUnit5 y MockK
@@ -20,6 +21,10 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 1. Instalar [Node](http://nodejs.org/)
 2. `npm install` (Estando en la carpeta javascript)
 3. `npm test`
+
+## Typescript
+1. Instalar [Deno](https://deno.land/#installation)
+2. `deno test` (Estando en la carpeta typescript)
 
 ## Java
 1. Instalar las dependencias y tests con Maven [mvn test]
@@ -63,6 +68,13 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 # Documentación
 ## Javascript
 [Jest](https://jestjs.io)
+
+## Typescript
+[Deno](https://deno.land/manual)
+
+[BDD module](https://deno.land/manual/testing/behavior_driven_development)
+
+[Expect module](https://deno.land/x/expect)
 
 ## PHP
 [PHPUnit](https://phpunit.readthedocs.io/)
