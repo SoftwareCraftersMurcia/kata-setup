@@ -1,7 +1,7 @@
 from src.change_me import ChangeMe
 
 
-class TestFragrance:
+class TestChangeMe:
 
     def test_change_me(
         self,
