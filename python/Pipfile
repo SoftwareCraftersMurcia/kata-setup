@@ -1,0 +1,30 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+flake8 = "*"
+mypy = "==0.770"
+pytest = "==7.0.0"
+pytest-mypy = "*"
+pytest-cov = "*"
+pytest-extra-durations = "*"
+types-python-dateutil = "*"
+python-dateutil = "*"
+pre-commit = "*"
+install = "*"
+pytest-docker-compose = "*"
+pytest-watcher = "*"
+
+[requires]
+python_version = "3.9"
+
+[pipenv]
+allow_prereleases = true
+
+[scripts]
+test = "pytest"
+test-current = "pytest -m current"
+test-watch-current = "ptw ./ -m current"
+test-watch-all = "ptw ./ -m current"
