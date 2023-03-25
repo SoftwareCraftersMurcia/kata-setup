@@ -4,6 +4,7 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 
 - PHP y PHPUnit
 - Javascript con Jest
+- Typescript con Node
 - Typescript con Deno
 - Java, Junit y Mockito
 - Scala, Munit y Scalacheck
@@ -30,6 +31,8 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 
 ### 📚 Documentación
 - [Jest](https://jestjs.io)
+
+## [Typescript con Node](/typescript/README.md)
 
 ## Typescript con Deno
 
