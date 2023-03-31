@@ -58,6 +58,20 @@ yarn test:watch
 
 > Lanzará los tests de forma automática siempre que se modifique el código de los tests o de producción.
 
+## Buscar errores de estilo en el código
+```bash
+npm run lint
+# --- o ---
+yarn lint
+```
+
+## Corregir errores de estilo en el código
+```bash
+npm run lint:fix
+# --- o ---
+yarn lint:fix
+```
+
 # Solución de problemas
 ## No reconoce el comando `nvm`
 Si acabas de instalar nvm es posible que tengas que reiniciar el terminal para que te detecte el nuevo comando.

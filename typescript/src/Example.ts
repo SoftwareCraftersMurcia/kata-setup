@@ -1,5 +1,5 @@
 export class Example {
-    static method(): boolean {
-        return true
-    }
+  method (): boolean {
+    return true
+  }
 }
