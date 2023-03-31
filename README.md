@@ -2,14 +2,14 @@
 
 Configuración básica para empezar a hacer una kata o aprender a hacer tests en los siguientes lenguajes:
 
-- PHP y PHPUnit
+- PHP con PHPUnit
 - Javascript con Jest
 - Typescript con Node
 - Typescript con Deno
-- Java, Junit y Mockito
-- Scala, Munit y Scalacheck
-- Kotlin, JUnit5 y MockK
-- C#, xUnit (con FluentAsertion) y NSubstitute (para mock)
+- Java con Junit y Mockito
+- Scala con Munit y Scalacheck
+- Kotlin con JUnit5 y MockK
+- C# con xUnit (FluentAsertion) y NSubstitute (para mock)
 
 # Configuración específica por lenguaje
 
@@ -17,11 +17,10 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 
 1. Instalar [composer](https://getcomposer.org/) `curl -sS https://getcomposer.org/installer | php`
 2. `composer install` (estando en la carpeta php)
-3. `./vendor/bin/phpunit`
+3. `vendor/bin/phpunit` o `composer test`
 
 ### 📚 Documentación
 - [PHPUnit](https://phpunit.readthedocs.io/)
-- [Prophecy](https://github.com/phpspec/prophecy) para dobles de prueba
 
 ## Javascript con Jest
 
@@ -84,17 +83,18 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 - [JUnit5](https://junit.org/junit5/)
 - [MockK](https://mockk.io/)
 
-## C# con  xUnit (con FluentAsertion) y NSubstitute (para mock)
+## C# con xUnit (con FluentAsertion) y NSubstitute (para mock)
 
 1. Instalar Microsoft Visual Studio Community 2022
 2. Abre el proyecto y se descargaran automáticamente los paquetes Nuguet necesarios
-3.
+
 ### 📚 Documentación
 - [xUnit](https://xunit.net/)
 - [NSubstitute](https://nsubstitute.github.io/help.html)
 - [FluentAssertions](https://fluentassertions.com/introduction)
 
 ## Python
+
 1. Instalar python 3.x
 2. Una vez descargado el código fuente dentro de la carpeta */python/ creamos un virtual enviroment:
 3. `python3 -m venv env`
