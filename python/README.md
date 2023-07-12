@@ -8,7 +8,6 @@ This project could be run with [pyenv](https://github.com/pyenv/pyenv).
 pyenv install 3.9.11
 ```
 
-
 This project uses [pipenv](https://pipenv.pypa.io/en/latest/) to handle package management and virtual environments.
 
 ```bash
@@ -28,4 +27,13 @@ To run commands manually in the virtualenv set up by `pipenv` you can either use
 Run all test
 ```shell
 pipenv run test 
+```
+
+# Some issues with the environment
+[ValueError: Path not found or generated](https://github.com/pypa/pipenv/issues/4942)
+```bash
+pipenv shell
+exit
+pipenv --rm
+pipenv install
 ```
