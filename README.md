@@ -10,6 +10,7 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 - Scala con Munit y Scalacheck
 - Kotlin con JUnit5 y MockK
 - C# con xUnit (FluentAsertion) y NSubstitute (para mock)
+- Go con testing (standard library)
 
 # Configuración específica por lenguaje
 
@@ -102,3 +103,12 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 - windows: `.\env\Scripts\activate.bat`
 - linux/mac: `source env/bin/activate`
 5. `pytest` para ejecutar los tests.
+
+## Go (Golang) con testing (standard library)
+
+1. Instalar [Go](https://go.dev/dl/)
+2. `go test -v` (en la carpeta con el archivo xxx_test.go)
+  
+### 📚 Documentación
+- [Go](https://go.dev/doc/)
+- [Testing Package](https://pkg.go.dev/testing)
