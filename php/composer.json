@@ -2,12 +2,12 @@
     "name": "kata-setup/php",
     "description": "Initial code to start TDD katas",
     "require": {
-        "php": ">=8.2.4"
+        "php": ">=8.2"
     },
     "require-dev": {
         "phpunit/phpunit": "^10",
-        "infection/codeception-adapter": "^0.4.2",
-        "infection/infection": "^0.27.6"
+        "infection/codeception-adapter": "^0.4",
+        "infection/infection": "^0.27"
     },
     "autoload": {
         "psr-4": {
