@@ -1,8 +1,7 @@
-
 export enum Movements {
-  ROCK = 'rock',
-  PAPER = 'paper',
-  SCISSORS = 'scissors',
+    ROCK = 'rock',
+    PAPER = 'paper',
+    SCISSORS = 'scissors',
 }
 
 export class RockPaperScissors {
@@ -13,25 +12,11 @@ export class RockPaperScissors {
             [Movements.ROCK]: Movements.SCISSORS,
         }
 
-        if ( winningMovements[playerTwoMovement] === playerOneMovement) {
-            return 'Player_2'
-        }
-        if (playerOneMovement === Movements.PAPER && playerTwoMovement !== Movements.SCISSORS) {
-            return 'Player_1'
-        }
-
-        if (playerOneMovement === Movements.SCISSORS && playerTwoMovement === Movements.PAPER) {
-            return 'Player_1'
-        }
-
-        if (playerTwoMovement === Movements.ROCK) {
-            return 'Player_2'
-        }
-        if (playerTwoMovement === Movements.PAPER) {
+        if (winningMovements[playerTwoMovement] === playerOneMovement) {
             return 'Player_2'
         }
 
 
-    return 'Player_1'
-  }
+        return 'Player_1'
+    }
 }
