@@ -7,10 +7,10 @@ export enum Movements {
 
 export class RockPaperScissors {
   plays(playerOneMovement: Movements, playerTwoMovement: Movements) {
-    if (playerOneMovement === Movements.PAPER) {
-      if (playerTwoMovement === Movements.SCISSORS) {
+    if (playerOneMovement === Movements.PAPER && playerTwoMovement === Movements.SCISSORS) {
         return 'Player_2'
-      }
+    }
+    if (playerOneMovement === Movements.PAPER && playerTwoMovement !== Movements.SCISSORS) {
       return 'Player_1'
     }
 
