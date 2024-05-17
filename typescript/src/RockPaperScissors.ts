@@ -12,13 +12,7 @@ export class RockPaperScissors {
             [Movements.ROCK]: Movements.SCISSORS,
         }
 
-        if (playerOneMovement === Movements.ROCK && playerTwoMovement === Movements.ROCK) {
-            return "Withdraw"
-        }
-        if (playerOneMovement === Movements.PAPER && playerTwoMovement === Movements.PAPER) {
-            return "Withdraw"
-        }
-        if (playerOneMovement === Movements.SCISSORS && playerTwoMovement === Movements.SCISSORS) {
+        if (playerOneMovement === playerTwoMovement) {
             return "Withdraw"
         }
 
