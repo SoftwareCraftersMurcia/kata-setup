@@ -18,6 +18,9 @@ export class RockPaperScissors {
         if (playerOneMovement === Movements.PAPER && playerTwoMovement === Movements.PAPER) {
             return "Withdraw"
         }
+        if (playerOneMovement === Movements.SCISSORS && playerTwoMovement === Movements.SCISSORS) {
+            return "Withdraw"
+        }
 
         if (winningMovements[playerTwoMovement] === playerOneMovement) {
             return 'Player_2'

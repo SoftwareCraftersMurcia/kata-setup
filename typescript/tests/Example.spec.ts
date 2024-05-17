@@ -35,6 +35,7 @@ describe('Rock Paper Scissors', () => {
   it.each([
     [Movements.ROCK, Movements.ROCK, 'Withdraw'],
     [Movements.PAPER, Movements.PAPER, 'Withdraw'],
+    [Movements.SCISSORS, Movements.SCISSORS, 'Withdraw'],
   ])('same movement should withdraw', (movementPlayerOne: Movements, movementPlayerTwo: Movements, winner: string) => {
     expect(
       game.plays(movementPlayerOne, movementPlayerTwo)
