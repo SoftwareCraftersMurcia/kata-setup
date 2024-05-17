@@ -13,7 +13,16 @@ describe('Rock Paper Scissors', () => {
     expect(
       game.plays(movementPlayerOne, movementPlayerTwo)
     ).toBe(winner)
-  })
+  });
+
+  it.each([
+    [Movements.SCISSORS, Movements.PAPER, 'Player_1'],
+    [Movements.PAPER, Movements.SCISSORS, 'Player_2']
+  ])('scissors should beat paper', (movementPlayerOne: Movements, movementPlayerTwo: Movements, winner: string) => {
+    expect(
+      game.plays(movementPlayerOne, movementPlayerTwo)
+    ).toBe(winner)
+  });
 
   describe('Player Two wins', () => {
     it('given that the second player uses paper beats rock', () => {
@@ -22,13 +31,6 @@ describe('Rock Paper Scissors', () => {
       )
         .toBe('Player_2')
     })
-    it('given that the second player uses scissors beats paper', () => {
-      expect(
-        game.plays(Movements.PAPER, Movements.SCISSORS)
-      )
-        .toBe('Player_2')
-    })
-
   });
 
   describe('Player One wins', ()=> {
@@ -38,13 +40,7 @@ describe('Rock Paper Scissors', () => {
       )
         .toBe('Player_1')
     })
-    it('given that the first player uses scissors beats paper', () => {
-      expect(
-        game.plays(Movements.SCISSORS, Movements.PAPER)
-      )
-        .toBe('Player_1')
-    })
-
+    
   })
 });
 
