@@ -7,7 +7,7 @@ class ExampleTest {
 
     @Test
     fun change_me_first() {
-        Assertions.assertEquals("Example", "Example")
+        Assertions.assertEquals("RockPaperScissorsGames", "RockPaperScissorsGames")
     }
 
     @TestFactory
