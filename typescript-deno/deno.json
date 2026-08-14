@@ -1,6 +1,6 @@
 {
     "tasks": {
-        "test": "deno test"
-    },
-    "importMap": "./import_map.json"
+    "test": "deno test --allow-read --frozen"
+  },
+    "lock": "./deno.lock"
 }

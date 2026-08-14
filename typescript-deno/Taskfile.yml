@@ -1,0 +1,32 @@
+version: '3'
+
+tasks:
+  default:
+    desc: Show available tasks
+    cmds: [task --list]
+  help:
+    desc: Show the Deno workflow and available tasks
+    cmds: [task --list]
+  install:
+    desc: Validate cached dependencies against deno.lock
+    cmds: [deno cache --frozen --lock=deno.lock src/kata.ts test/kata.test.ts]
+  test:
+    desc: Run Deno tests with frozen dependencies
+    cmds: [deno task test]
+  cli:
+    desc: Run Deno test directly
+    cmds: [deno test --allow-read --frozen]
+  check:
+    desc: Type-check Deno sources
+    cmds: [deno check src/kata.ts test/kata.test.ts]
+  fmt:check:
+    desc: Check Deno formatting
+    cmds: [deno fmt --check]
+  lint:
+    desc: Run Deno lint
+    cmds: [deno lint]
+  docker:test:
+    desc: Build and run the test container
+    cmds:
+      - docker build --pull --target test -t kata-typescript-deno .
+      - docker run --rm kata-typescript-deno

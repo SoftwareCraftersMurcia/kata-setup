@@ -1,0 +1,144 @@
+version: '3'
+
+tasks:
+  default:
+    desc: Show repository-wide tasks
+    cmds: [task --list-all]
+  help:
+    desc: Show repository workflow and available tasks
+    cmds: [task --list-all]
+
+  install:javascript:
+    dir: javascript
+    cmds: [pnpm install --frozen-lockfile]
+  test:javascript:
+    dir: javascript
+    cmds: [pnpm test]
+  docker:test:javascript:
+    cmds:
+      - docker build --pull --target test -t kata-javascript ./javascript
+      - docker run --rm kata-javascript
+
+  install:typescript:
+    dir: typescript
+    cmds: [pnpm install --frozen-lockfile]
+  test:typescript:
+    dir: typescript
+    cmds: [pnpm test]
+  docker:test:typescript:
+    cmds:
+      - docker build --pull --target test -t kata-typescript ./typescript
+      - docker run --rm kata-typescript
+
+  test:typescript-deno:
+    dir: typescript-deno
+    cmds: [deno task test]
+  install:typescript-deno:
+    dir: typescript-deno
+    cmds: [deno cache --frozen --lock=deno.lock src/kata.ts test/kata.test.ts]
+  docker:test:typescript-deno:
+    cmds:
+      - docker build --pull --target test -t kata-typescript-deno ./typescript-deno
+      - docker run --rm kata-typescript-deno
+
+  install:python:
+    dir: python
+    cmds: [uv sync --locked]
+  test:python:
+    dir: python
+    cmds: [uv run pytest]
+  docker:test:python:
+    cmds:
+      - docker build --pull --target test -t kata-python ./python
+      - docker run --rm kata-python
+
+  install:php:
+    dir: php
+    cmds: [composer install]
+  test:php:
+    dir: php
+    cmds: [composer test]
+  docker:test:php:
+    cmds:
+      - docker build --pull --target test -t kata-php ./php
+      - docker run --rm kata-php
+
+  test:java:
+    dir: java
+    cmds: [./mvnw -B test]
+  install:java:
+    dir: java
+    cmds: [./mvnw -B dependency:go-offline]
+  docker:test:java:
+    cmds:
+      - docker build --pull --target test -t kata-java ./java
+      - docker run --rm kata-java
+
+  test:scala:
+    dir: scala
+    cmds: [sbt test]
+  install:scala:
+    dir: scala
+    cmds: [sbt update]
+  docker:test:scala:
+    cmds:
+      - docker build --pull --target test -t kata-scala ./scala
+      - docker run --rm kata-scala
+
+  test:kotlin:
+    dir: kotlin
+    cmds: [./gradlew test --no-daemon]
+  install:kotlin:
+    dir: kotlin
+    cmds: [./gradlew dependencies --no-daemon]
+  docker:test:kotlin:
+    cmds:
+      - docker build --pull --target test -t kata-kotlin ./kotlin
+      - docker run --rm kata-kotlin
+
+  test:csharp:
+    dir: csharp
+    cmds: [dotnet test csharp.sln]
+  install:csharp:
+    dir: csharp
+    cmds: [dotnet restore csharp.sln]
+  docker:test:csharp:
+    cmds:
+      - docker build --pull --target test -t kata-csharp ./csharp
+      - docker run --rm kata-csharp
+
+  test:go:
+    dir: go
+    cmds: [go test ./...]
+  install:go:
+    dir: go
+    cmds: [go mod download]
+  docker:test:go:
+    cmds:
+      - docker build --pull --target test -t kata-go ./go
+      - docker run --rm kata-go
+
+  test:all:
+    deps:
+      - test:javascript
+      - test:typescript
+      - test:typescript-deno
+      - test:python
+      - test:php
+      - test:java
+      - test:scala
+      - test:kotlin
+      - test:go
+
+  docker:test:all:
+    deps:
+      - docker:test:javascript
+      - docker:test:typescript
+      - docker:test:typescript-deno
+      - docker:test:python
+      - docker:test:php
+      - docker:test:java
+      - docker:test:scala
+      - docker:test:kotlin
+      - docker:test:csharp
+      - docker:test:go

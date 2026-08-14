@@ -1,0 +1,26 @@
+version: '3'
+
+tasks:
+  default:
+    desc: Show available tasks
+    cmds: [task --list]
+  help:
+    desc: Show the Scala workflow and available tasks
+    cmds: [task --list]
+  install:
+    desc: Resolve sbt dependencies
+    cmds: [sbt update]
+  test:
+    desc: Run Scala tests through sbt
+    cmds: [sbt test]
+  cli:
+    desc: Run sbt tests directly
+    cmds: [sbt test]
+  format:check:
+    desc: Check Scalafmt formatting
+    cmds: [sbt scalafmtCheck]
+  docker:test:
+    desc: Build and run the test container
+    cmds:
+      - docker build --pull --target test -t kata-scala .
+      - docker run --rm kata-scala

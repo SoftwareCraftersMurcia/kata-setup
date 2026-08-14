@@ -1,0 +1,26 @@
+version: '3'
+
+tasks:
+  default:
+    desc: Show available tasks
+    cmds: [task --list]
+  help:
+    desc: Show the Kotlin workflow and available tasks
+    cmds: [task --list]
+  install:
+    desc: Resolve Gradle dependencies
+    cmds: ['./gradlew', 'dependencies', '--no-daemon']
+  test:
+    desc: Run Kotlin tests
+    cmds: ['./gradlew', 'test', '--no-daemon']
+  cli:
+    desc: Run Gradle tests directly
+    cmds: ['./gradlew', 'test', '--no-daemon']
+  clean:
+    desc: Remove Gradle build output
+    cmds: ['./gradlew', 'clean', '--no-daemon']
+  docker:test:
+    desc: Build and run the test container
+    cmds:
+      - docker build --pull --target test -t kata-kotlin .
+      - docker run --rm kata-kotlin

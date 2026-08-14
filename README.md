@@ -1,114 +1,132 @@
-# Base para hacer tests
+# Kata Setup
 
-Configuración básica para empezar a hacer una kata o aprender a hacer tests en los siguientes lenguajes:
+Plantillas aisladas para practicar TDD y testing en JavaScript, TypeScript, Deno, Python, PHP, Java, Scala, Kotlin, C# y Go.
 
-- PHP con PHPUnit
-- Javascript con Jest
-- Typescript con Node
-- Typescript con Deno
-- Java con Junit y Mockito
-- Scala con Munit y Scalacheck
-- Kotlin con JUnit5 y MockK
-- C# con xUnit (FluentAsertion) y NSubstitute (para mock)
-- Go con testing (standard library)
+## Experiencia rapida
 
-# Configuración específica por lenguaje
+Instala [Task](https://taskfile.dev/installation/) y Docker. Cada proyecto es independiente y tiene su propio `Taskfile.yml` con las tareas de su ecosistema. El `Taskfile.yml` raiz ofrece ademas una interfaz uniforme.
 
-## PHP con PHPUnit
+## Ayuda de Task
 
-1. Instalar [composer](https://getcomposer.org/) `curl -sS https://getcomposer.org/installer | php`
-2. `composer install` (estando en la carpeta php)
-3. `vendor/bin/phpunit` o `composer test`
+Desde la raiz:
 
-### 📚 Documentación
-- [PHPUnit](https://phpunit.readthedocs.io/)
+```bash
+task help
+task --list
+```
 
-## Javascript con Jest
+Desde cualquier proyecto:
 
-1. Instalar [Node](http://nodejs.org/)
-2. `npm install` (Estando en la carpeta javascript)
-3. `npm test`
+```bash
+cd python
+task help
+task --list
+```
 
-### 📚 Documentación
-- [Jest](https://jestjs.io)
+La tarea `help` muestra las operaciones disponibles y sus descripciones. El flujo habitual es:
 
-## [Typescript con Node](/typescript/README.md)
+Desde la raiz, el flujo uniforme es:
 
-## Typescript con Deno
+```bash
+task install:javascript
+task test:javascript
+task docker:test:javascript
+task test:all
+task docker:test:all
+```
 
-1. Instalar [Deno](https://deno.land/#installation)
-2. `deno test` (Estando en la carpeta typescript)
+`task --list-all` muestra todas las tareas con nombres compuestos.
 
-### 📚 Documentación
-- [Deno](https://deno.land/manual)
-- [BDD module](https://deno.land/manual/testing/behavior_driven_development)
-- [Expect module](https://deno.land/x/expect)
+Tambien puedes entrar en cualquier proyecto y ejecutar directamente:
 
-## Java con Junit y Mockito
+```bash
+cd python
+task install
+task test
+task docker:test
+```
 
-1. Instalar las dependencias y tests con Maven [mvn test]
-2. Ejecutar los tests con el IDE
+Los comandos directos y el troubleshooting completo estan en el `README.md` de cada carpeta.
 
-### 📚 Documentación
-- [JUnit](https://github.com/junit-team/junit/wiki)
-- [Mockito](http://site.mockito.org/mockito/docs/current/org/mockito/Mockito.html)
+## Proyectos
 
-## Scala con Munit y Scalacheck
+- `javascript`: Node 26, pnpm, Vitest y Vite.
+- `typescript`: Node 26, pnpm, TypeScript, Vitest y Vite.
+- `typescript-deno`: Deno 2.9, JSR y `deno.lock`.
+- `python`: Python 3.14 y uv.
+- `php`: PHP 8.5, Composer, PHPUnit e Infection.
+- `java`: JDK 26 y Maven.
+- `scala`: Scala 3.8.4, sbt y MUnit.
+- `kotlin`: Kotlin 2.4.10, Gradle y MockK.
+- `csharp`: .NET 10, xUnit, Shouldly y NSubstitute.
+- `go`: Go 1.26 y testing de la libreria estandar.
 
-1. `sbt` (en la carpeta scala)
-2. `~test` para ejecutar los test en hot reload
+## Gestores locales
 
-### 📚 Documentación
-- [Munit](https://scalameta.org/munit/docs/tests.html)
-- [Scalacheck](https://github.com/typelevel/scalacheck/blob/main/doc/UserGuide.md) para testing basado en propiedades
+- Node: `nvm` o `fnm`.
+- Python: `uv`.
+- Java, Kotlin y Scala: SDKMAN!.
+- Go, PHP y .NET: gestor oficial o `mise` cuando sea compatible.
+- Deno: instalador oficial o `mise`.
 
-### Linux/Mac
-1. Instalar [SDKMan](https://sdkman.io/)
-2. `sdk install java 11.0.12-open` instala OpenJDK
-3. `sdk install sbt` una vez instalado SDKMan
+Docker es autonomo y no depende de estos gestores del host.
 
-### Windows
-1. Instalar [OpenJDK](https://docs.microsoft.com/es-es/java/openjdk/download#openjdk-110141-lts--see-previous-releases)
-2. Instalar [SBT](https://www.scala-sbt.org/download.html)
+## Verificacion
 
-### Visual Studio Code
-1. Descargar [Visual Studio Code](https://code.visualstudio.com/)
-2. Instalar para VS Code [Metals](https://scalameta.org/metals/docs/editors/vscode)
+Cada fase se valida localmente, mediante CLI y desde Docker. Los resultados actuales son:
 
-## Kotlin con JUnit5 y MockK
+| Proyecto | Local/CLI | Docker | Resultado |
+|---|---|---|---|
+| JavaScript | OK | OK | 1 test pasa |
+| TypeScript | OK | OK | type check y 1 test pasan |
+| Deno | Pendiente: Deno no instalado en host | OK | 1 test pasa |
+| Python | OK | OK | 1 test pasa |
+| PHP | Pendiente: host usa PHP 8.3 | OK | 1 test pasa |
+| Java | Pendiente: Maven/JDK objetivo no instalado | OK | 1 test pasa |
+| Scala | Pendiente: sbt no instalado | OK | 1 test pasa |
+| Kotlin | Pendiente: toolchain no instalado | OK | tests pasan |
+| C# | Pendiente: SDK no instalado | RED esperado | 1 test falla por `false` esperado `true` |
+| Go | Pendiente: no se ha ejecutado localmente en esta sesion | OK | 1 test pasa |
 
-1. Por consola: Puedes instalar dependencias y lanzar los tests con `gradlew test`
-2. Usando IDE: Simplemente abre el proyecto desde el raiz de la plantilla Kotlin
+El fallo C# es intencionado por el scaffold y esta documentado en `csharp/README.md`.
 
-### 📚 Documentación
-- [JUnit5](https://junit.org/junit5/)
-- [MockK](https://mockk.io/)
+## Politicas
 
-## C# con xUnit (con FluentAsertion) y NSubstitute (para mock)
+- Versiones estables actuales, sin previews.
+- Lockfiles versionados.
+- No se usa npm en los proyectos Node; se usa pnpm.
+- No se usa Pipenv; Python usa uv.
+- No se usa Docker Compose.
+- No se usa GitHub Actions.
+- No se usa FluentAssertions; C# usa Shouldly.
 
-1. Instalar Microsoft Visual Studio Community 2022
-2. Abre el proyecto y se descargaran automáticamente los paquetes Nuguet necesarios
+## Herramientas y decisiones
 
-### 📚 Documentación
-- [xUnit](https://xunit.net/)
-- [NSubstitute](https://nsubstitute.github.io/help.html)
-- [FluentAssertions](https://fluentassertions.com/introduction)
+- [Task](https://taskfile.dev/): unifica las operaciones habituales sin ocultar los comandos propios de cada lenguaje. Cada proyecto tiene su propio `Taskfile.yml` y la raiz solo los orquesta.
+- [Docker](https://docs.docker.com/): permite ejecutar cada kata en un entorno aislado y reproducible. Los Dockerfiles usan tags de version explicitos, sin digests SHA-256, segun la politica del repositorio.
+- [pnpm](https://pnpm.io/): sustituye npm en JavaScript y TypeScript por su store y su instalacion basada en lockfile, reduciendo duplicacion y mejorando la trazabilidad de dependencias.
+- [Vitest](https://vitest.dev/): sustituye Jest por un runner moderno integrado con el ecosistema Vite y adecuado para tests JavaScript/TypeScript.
+- [Vite](https://vite.dev/): proporciona la infraestructura de configuracion y transformacion que Vitest utiliza; no se introduce un servidor web innecesario en las katas.
+- [Deno](https://docs.deno.com/runtime/): ejecuta la kata TypeScript aislada con permisos explicitos y lockfile propio.
+- [JSR](https://jsr.io/): proporciona los modulos modernos de aserciones y testing usados por Deno.
+- [uv](https://docs.astral.sh/uv/): sustituye Pipenv para gestionar Python, entornos, versiones, dependencias y `uv.lock` desde una sola herramienta.
+- [Composer](https://getcomposer.org/doc/01-basic-usage.md): resuelve PHP y conserva `composer.lock` para instalaciones reproducibles.
+- [PHPUnit](https://phpunit.de/documentation.html): framework oficial de tests PHP; el test usa atributos compatibles con PHPUnit 12.
+- [Infection](https://infection.github.io/): mantiene mutation testing en PHP.
+- [Maven](https://maven.apache.org/guides/): gestiona Java y sus dependencias de test.
+- [JUnit](https://junit.org/junit5/): framework de testing Java actualizado.
+- [Scala](https://www.scala-lang.org/): el proyecto se migro a Scala 3.
+- [sbt](https://www.scala-sbt.org/): build tool de Scala y resolucion de sus dependencias.
+- [MUnit](https://scalameta.org/munit/): framework de tests Scala.
+- [Kotlin](https://kotlinlang.org/): compilador y plugin JVM actualizado.
+- [Gradle](https://gradle.org/): wrapper actualizado para construir y ejecutar Kotlin.
+- [MockK](https://mockk.io/): mocking para tests Kotlin.
+- [.NET](https://dotnet.microsoft.com/): runtime y SDK actualizado a .NET 10.
+- [xUnit.net](https://xunit.net/): framework de tests C#.
+- [Shouldly](https://shouldly.readthedocs.io/): sustituto de FluentAssertions para evitar una dependencia con licencia comercial para uso comercial.
+- [NSubstitute](https://nsubstitute.github.io/): mocking en C#.
+- [Go](https://go.dev/doc/): runtime y toolchain Go actualizado; los tests usan el paquete estandar `testing`.
 
-## Python
+## Por que se hizo
 
-1. Instalar python 3.x
-2. Una vez descargado el código fuente dentro de la carpeta */python/ creamos un virtual enviroment:
-3. `python3 -m venv env`
-4. Activamos en virtual environment:
-- windows: `.\env\Scripts\activate.bat`
-- linux/mac: `source env/bin/activate`
-5. `pytest` para ejecutar los tests.
-
-## Go (Golang) con testing (standard library)
-
-1. Instalar [Go](https://go.dev/dl/)
-2. `go test -v` (en la carpeta con el archivo xxx_test.go)
-  
-### 📚 Documentación
-- [Go](https://go.dev/doc/)
-- [Testing Package](https://pkg.go.dev/testing)
+El setup tenia runtimes y dependencias obsoletos, gestores mezclados, lockfiles ausentes y comandos diferentes por carpeta. La actualizacion reduce esa friccion, conserva el aislamiento pedagogico de cada lenguaje, permite ejecutar tests localmente o con Docker y deja documentado el camino de instalacion, test, CLI y troubleshooting.
