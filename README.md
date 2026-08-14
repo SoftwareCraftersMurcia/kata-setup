@@ -127,6 +127,3 @@ El fallo C# es intencionado por el scaffold y esta documentado en `csharp/README
 - [NSubstitute](https://nsubstitute.github.io/): mocking en C#.
 - [Go](https://go.dev/doc/): runtime y toolchain Go actualizado; los tests usan el paquete estandar `testing`.
 
-## Por que se hizo
-
-El setup tenia runtimes y dependencias obsoletos, gestores mezclados, lockfiles ausentes y comandos diferentes por carpeta. La actualizacion reduce esa friccion, conserva el aislamiento pedagogico de cada lenguaje, permite ejecutar tests localmente o con Docker y deja documentado el camino de instalacion, test, CLI y troubleshooting.
