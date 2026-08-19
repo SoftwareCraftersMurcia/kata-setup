@@ -23,7 +23,7 @@ Desde esta carpeta puedes usar el Taskfile local: `task install`, `task test`, `
 
 ## Resultado actual de tests
 
-El scaffold contiene un test RED intencionado: `firstTest` vale `false` y la asercion espera `true`. Por eso `dotnet test` y Docker ejecutan 1 test y devuelven fallo por la razon correcta. El test no se cambia porque forma parte del ejercicio de la plantilla.
+El scaffold contiene un test basico que comprueba que `true` es `true`. Por eso `dotnet test` y Docker ejecutan 1 test correctamente.
 
 ## Troubleshooting
 

@@ -28,5 +28,5 @@ tasks:
   docker:test:
     desc: Build and run the test container
     cmds:
-      - docker build --pull --target test -t kata-python .
+      - docker build --target test -t kata-python .
       - docker run --rm kata-python

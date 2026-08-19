@@ -16,7 +16,7 @@ tasks:
     cmds: [pnpm test]
   docker:test:javascript:
     cmds:
-      - docker build --pull --target test -t kata-javascript ./javascript
+      - docker build --target test -t kata-javascript ./javascript
       - docker run --rm kata-javascript
 
   install:typescript:
@@ -27,7 +27,7 @@ tasks:
     cmds: [pnpm test]
   docker:test:typescript:
     cmds:
-      - docker build --pull --target test -t kata-typescript ./typescript
+      - docker build --target test -t kata-typescript ./typescript
       - docker run --rm kata-typescript
 
   test:typescript-deno:
@@ -38,7 +38,7 @@ tasks:
     cmds: [deno cache --frozen --lock=deno.lock src/kata.ts test/kata.test.ts]
   docker:test:typescript-deno:
     cmds:
-      - docker build --pull --target test -t kata-typescript-deno ./typescript-deno
+      - docker build --target test -t kata-typescript-deno ./typescript-deno
       - docker run --rm kata-typescript-deno
 
   install:python:
@@ -49,7 +49,7 @@ tasks:
     cmds: [uv run pytest]
   docker:test:python:
     cmds:
-      - docker build --pull --target test -t kata-python ./python
+      - docker build --target test -t kata-python ./python
       - docker run --rm kata-python
 
   install:php:
@@ -60,7 +60,7 @@ tasks:
     cmds: [composer test]
   docker:test:php:
     cmds:
-      - docker build --pull --target test -t kata-php ./php
+      - docker build --target test -t kata-php ./php
       - docker run --rm kata-php
 
   test:java:
@@ -71,7 +71,7 @@ tasks:
     cmds: [./mvnw -B dependency:go-offline]
   docker:test:java:
     cmds:
-      - docker build --pull --target test -t kata-java ./java
+      - docker build --target test -t kata-java ./java
       - docker run --rm kata-java
 
   test:scala:
@@ -82,7 +82,7 @@ tasks:
     cmds: [sbt update]
   docker:test:scala:
     cmds:
-      - docker build --pull --target test -t kata-scala ./scala
+      - docker build --target test -t kata-scala ./scala
       - docker run --rm kata-scala
 
   test:kotlin:
@@ -93,7 +93,7 @@ tasks:
     cmds: [./gradlew dependencies --no-daemon]
   docker:test:kotlin:
     cmds:
-      - docker build --pull --target test -t kata-kotlin ./kotlin
+      - docker build --target test -t kata-kotlin ./kotlin
       - docker run --rm kata-kotlin
 
   test:csharp:
@@ -104,7 +104,7 @@ tasks:
     cmds: [dotnet restore csharp.sln]
   docker:test:csharp:
     cmds:
-      - docker build --pull --target test -t kata-csharp ./csharp
+      - docker build --target test -t kata-csharp ./csharp
       - docker run --rm kata-csharp
 
   test:go:
@@ -115,7 +115,7 @@ tasks:
     cmds: [go mod download]
   docker:test:go:
     cmds:
-      - docker build --pull --target test -t kata-go ./go
+      - docker build --target test -t kata-go ./go
       - docker run --rm kata-go
 
   test:all:
@@ -128,6 +128,7 @@ tasks:
       - test:java
       - test:scala
       - test:kotlin
+      - test:csharp
       - test:go
 
   docker:test:all:

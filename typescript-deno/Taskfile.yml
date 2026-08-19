@@ -28,5 +28,5 @@ tasks:
   docker:test:
     desc: Build and run the test container
     cmds:
-      - docker build --pull --target test -t kata-typescript-deno .
+      - docker build --target test -t kata-typescript-deno .
       - docker run --rm kata-typescript-deno

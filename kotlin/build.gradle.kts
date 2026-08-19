@@ -25,6 +25,7 @@ tasks.test {
 }
 
 kotlin {
+    jvmToolchain(26)
     compilerOptions {
         jvmTarget.set(JvmTarget.JVM_26)
     }

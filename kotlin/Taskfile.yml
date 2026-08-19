@@ -22,5 +22,5 @@ tasks:
   docker:test:
     desc: Build and run the test container
     cmds:
-      - docker build --pull --target test -t kata-kotlin .
+      - docker build --target test -t kata-kotlin .
       - docker run --rm kata-kotlin

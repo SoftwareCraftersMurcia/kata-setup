@@ -25,5 +25,5 @@ tasks:
   docker:test:
     desc: Build and run the test container
     cmds:
-      - docker build --pull --target test -t kata-javascript .
+      - docker build --target test -t kata-javascript .
       - docker run --rm kata-javascript

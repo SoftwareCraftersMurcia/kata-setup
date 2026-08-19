@@ -73,22 +73,9 @@ Docker es autonomo y no depende de estos gestores del host.
 
 ## Verificacion
 
-Cada fase se valida localmente, mediante CLI y desde Docker. Los resultados actuales son:
+La calidad se verifica ejecutando la tarea `test:<proyecto>` desde la raiz o `task test` dentro del proyecto. La validacion reproducible de cada proyecto se ejecuta tambien en su imagen Docker mediante `docker:test:<proyecto>` o `task docker:test`.
 
-| Proyecto | Local/CLI | Docker | Resultado |
-|---|---|---|---|
-| JavaScript | OK | OK | 1 test pasa |
-| TypeScript | OK | OK | type check y 1 test pasan |
-| Deno | Pendiente: Deno no instalado en host | OK | 1 test pasa |
-| Python | OK | OK | 1 test pasa |
-| PHP | Pendiente: host usa PHP 8.3 | OK | 1 test pasa |
-| Java | Pendiente: Maven/JDK objetivo no instalado | OK | 1 test pasa |
-| Scala | Pendiente: sbt no instalado | OK | 1 test pasa |
-| Kotlin | Pendiente: toolchain no instalado | OK | tests pasan |
-| C# | Pendiente: SDK no instalado | RED esperado | 1 test falla por `false` esperado `true` |
-| Go | Pendiente: no se ha ejecutado localmente en esta sesion | OK | 1 test pasa |
-
-El fallo C# es intencionado por el scaffold y esta documentado en `csharp/README.md`.
+Una validacion completa debe terminar sin errores en `task test:all` y `task docker:test:all`. Los proyectos que incluyen comprobaciones adicionales las exponen en sus tareas locales, como `lint`, `typecheck`, `vet`, `format:check`, `audit` o `mutation`.
 
 ## Politicas
 
