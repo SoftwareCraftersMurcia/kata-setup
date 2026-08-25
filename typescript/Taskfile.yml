@@ -1,0 +1,32 @@
+version: '3'
+
+tasks:
+  default:
+    desc: Show available tasks
+    cmds: [task --list]
+  help:
+    desc: Show the TypeScript workflow and available tasks
+    cmds: [task --list]
+  install:
+    desc: Install dependencies from pnpm-lock.yaml
+    cmds: [pnpm install --frozen-lockfile]
+  test:
+    desc: Run typecheck and tests
+    cmds: [pnpm test]
+  cli:
+    desc: Run Vitest directly
+    cmds: [pnpm exec vitest run]
+  typecheck:
+    desc: Run the TypeScript compiler without emitting files
+    cmds: [pnpm exec tsc --noEmit]
+  lint:
+    desc: Run the TypeScript linter
+    cmds: [pnpm lint]
+  coverage:
+    desc: Run tests and generate coverage
+    cmds: [pnpm coverage]
+  docker:test:
+    desc: Build and run the test container
+    cmds:
+      - docker build --target test -t kata-typescript .
+      - docker run --rm kata-typescript

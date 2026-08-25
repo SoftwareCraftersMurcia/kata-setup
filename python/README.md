@@ -1,39 +1,50 @@
-### Requirements
-* Python 3.9
-* [pipenv](https://pipenv-fork.readthedocs.io/en/latest/install.html)
+# Python
 
-### Installation
-This project could be run with [pyenv](https://github.com/pyenv/pyenv).
-```shell
-pyenv install 3.9.11
-```
+Kata Python aislada gestionada con `uv`.
 
-This project uses [pipenv](https://pipenv.pypa.io/en/latest/) to handle package management and virtual environments.
+## Requisitos
+
+- Python 3.14.
+- uv 0.12.1 o posterior.
+- Docker.
+
+`uv` gestiona la version de Python, el entorno virtual, las dependencias y el lockfile. Se recomienda usar `uv python install 3.14`.
+
+## Instalacion local
 
 ```bash
-pipenv install
+uv python install 3.14
+uv sync --locked
 ```
 
-As a developer is likely that you want to install also the development packages. For doing that execute the next
-command:
+Las dependencias de runtime estan en `project.dependencies` y las de desarrollo en `dependency-groups.dev`. `uv.lock` contiene la resolucion completa.
+
+## Tests y CLI
+
+Desde esta carpeta puedes usar el Taskfile local: `task install`, `task test`, `task cli`, `task coverage`, `task lint`, `task typecheck` y `task docker:test`.
+
 ```bash
-pipenv install --dev
+uv run pytest
+uv run python -m pytest
+uv run pytest --cov=src
+uv run flake8 src tests
+uv run mypy src
 ```
 
-To run commands manually in the virtualenv set up by `pipenv` you can either use `pipenv run <command>` or
-`pipenv shell` for a Bash prompt.
+## Docker
 
-## Scripts
-Run all test
-```shell
-pipenv run test 
-```
-
-# Some issues with the environment
-[ValueError: Path not found or generated](https://github.com/pypa/pipenv/issues/4942)
 ```bash
-pipenv shell
-exit
-pipenv --rm
-pipenv install
+docker build --pull --target test -t kata-python .
+docker run --rm kata-python
 ```
+
+## Troubleshooting
+
+- Si `uv` no existe, instalalo desde su instalador oficial y comprueba `uv --version`.
+- Si el lockfile no coincide, ejecuta `uv lock` y revisa el diff.
+- Si una dependencia no tiene wheel para Python 3.14, el error se documentara y se actualizara la dependencia compatible; no se ocultara instalando una version antigua.
+- Si un test no se descubre, ejecuta `uv run pytest --collect-only`.
+
+## Dependencias directas
+
+El inventario completo de dependencias declaradas se conserva en `pyproject.toml`; las transitivas y hashes estan en `uv.lock`. Se mantienen las dependencias heredadas de Pipenv y se clasifican por runtime y desarrollo. Se eliminaron las entradas invalidas `install`, `typed-ast`, `docker-compose`, `dockerpty` y `pytest-docker-compose`: las dos primeras no son compatibles con Python 3.14 y las restantes son herramientas Compose legacy incompatibles con PyYAML moderno y con la decision del repositorio de no usar Compose.

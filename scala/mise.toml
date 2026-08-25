@@ -1,0 +1,12 @@
+min_version = "2025.1.0"
+
+[tools]
+java = "temurin-26.0.2+10"
+scala = "3.8.4"
+sbt = "1.11.7"
+
+[tasks.install]
+run = "sbt update"
+
+[tasks.test]
+run = "sbt test"

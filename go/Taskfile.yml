@@ -1,0 +1,29 @@
+version: '3'
+
+tasks:
+  default:
+    desc: Show available tasks
+    cmds: [task --list]
+  help:
+    desc: Show the Go workflow and available tasks
+    cmds: [task --list]
+  install:
+    desc: Download Go module dependencies
+    cmds: [go mod download]
+  test:
+    desc: Run Go tests for all packages
+    cmds: [go test ./...]
+  cli:
+    desc: Run Go tests with verbose output
+    cmds: [go test -v ./...]
+  fmt:check:
+    desc: Check gofmt formatting
+    cmds: ['test -z "$(gofmt -l .)"']
+  vet:
+    desc: Run go vet
+    cmds: [go vet ./...]
+  docker:test:
+    desc: Build and run the test container
+    cmds:
+      - docker build --target test -t kata-go .
+      - docker run --rm kata-go

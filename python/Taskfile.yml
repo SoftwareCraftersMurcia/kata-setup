@@ -1,0 +1,32 @@
+version: '3'
+
+tasks:
+  default:
+    desc: Show available tasks
+    cmds: [task --list]
+  help:
+    desc: Show the Python workflow and available tasks
+    cmds: [task --list]
+  install:
+    desc: Sync the uv environment from uv.lock
+    cmds: [uv sync --locked]
+  test:
+    desc: Run pytest through uv
+    cmds: [uv run pytest]
+  cli:
+    desc: Run pytest through the Python module CLI
+    cmds: [uv run python -m pytest]
+  coverage:
+    desc: Run tests with coverage
+    cmds: [uv run pytest --cov=src]
+  lint:
+    desc: Run flake8
+    cmds: [uv run flake8 src tests]
+  typecheck:
+    desc: Run mypy
+    cmds: [uv run mypy src]
+  docker:test:
+    desc: Build and run the test container
+    cmds:
+      - docker build --target test -t kata-python .
+      - docker run --rm kata-python

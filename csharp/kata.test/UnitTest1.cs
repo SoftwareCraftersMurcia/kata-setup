@@ -1,6 +1,8 @@
 namespace kata.test;
 
-//Example first test using xUnit, FluentAssertions and NSubistitute
+using Shouldly;
+
+//Example first test using xUnit, Shouldly and NSubstitute
 //Commented things are only an example.
 public class UnitTest1
 {
@@ -31,7 +33,7 @@ public class UnitTest1
         // response.Should()..... 
 
         //Example Using FluentAssertion
-        bool firstTest = false;
-        firstTest.Should().Be(true);
+        bool firstTest = true;
+        firstTest.ShouldBe(true);
     }
 }

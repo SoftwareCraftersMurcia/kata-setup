@@ -1,0 +1,10 @@
+min_version = "2025.1.0"
+
+[tools]
+dotnet = { version = "10.0", prerelease = true }
+
+[tasks.install]
+run = "dotnet restore csharp.sln"
+
+[tasks.test]
+run = "dotnet test csharp.sln"

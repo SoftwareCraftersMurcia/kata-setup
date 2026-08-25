@@ -1,0 +1,29 @@
+version: '3'
+
+tasks:
+  default:
+    desc: Show available tasks
+    cmds: [task --list]
+  help:
+    desc: Show the JavaScript workflow and available tasks
+    cmds: [task --list]
+  install:
+    desc: Install dependencies from pnpm-lock.yaml
+    cmds: [pnpm install --frozen-lockfile]
+  test:
+    desc: Run the test suite once
+    cmds: [pnpm test]
+  cli:
+    desc: Run Vitest directly
+    cmds: [pnpm exec vitest run]
+  watch:
+    desc: Run tests in watch mode
+    cmds: [pnpm test:watch]
+  coverage:
+    desc: Run tests and generate coverage
+    cmds: [pnpm coverage]
+  docker:test:
+    desc: Build and run the test container
+    cmds:
+      - docker build --target test -t kata-javascript .
+      - docker run --rm kata-javascript

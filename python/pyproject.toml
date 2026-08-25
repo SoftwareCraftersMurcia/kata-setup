@@ -1,0 +1,40 @@
+[project]
+name = "kata-setup-python"
+version = "0.1.0"
+description = "Python kata setup"
+requires-python = ">=3.14"
+dependencies = [
+  "azure-core", "azure-identity", "cachetools", "certifi", "cffi",
+  "charset-normalizer", "click", "cryptography", "et-xmlfile", "flask",
+  "flask-cors", "gevent", "google-api-core", "google-auth",
+  "googleapis-common-protos", "greenlet", "idna", "importlib-metadata",
+  "itsdangerous", "jinja2", "markupsafe", "msal", "msal-extensions",
+  "numpy", "opencensus", "opencensus-context", "opencensus-ext-azure",
+  "opencensus-ext-flask", "openpyxl", "pandas", "portalocker", "protobuf",
+  "psutil", "psycogreen", "psycopg2-binary", "pyasn1", "pyasn1-modules",
+  "pycparser", "pyjwt[crypto]", "python-dateutil", "pytz", "pyyaml>=6.0.1",
+  "requests", "rsa", "setuptools", "six", "sqlalchemy", "sqlparse",
+  "tabulate", "tenacity", "types-cryptography", "typing-extensions",
+  "urllib3", "werkzeug", "yoyo-migrations", "zipp", "zope.event",
+  "zope.interface"
+]
+
+[dependency-groups]
+dev = [
+  "flake8", "mypy", "pytest", "pytest-mypy", "pytest-cov",
+  "pytest-extra-durations", "types-python-dateutil", "python-dateutil",
+  "pre-commit", "pytest-watcher",
+  "attrs", "bcrypt", "cfgv", "coverage", "distlib", "distro", "docker",
+  "docopt", "filelock", "identify",
+  "jsonschema", "mccabe", "mypy-extensions", "nodeenv", "packaging",
+  "paramiko", "platformdirs", "pluggy", "py", "pycodestyle", "pyflakes",
+  "pynacl", "pyparsing", "pyrsistent", "python-dotenv", "types-pyyaml",
+  "types-requests", "types-urllib3", "toml", "tomli",
+  "virtualenv", "watchdog", "websocket-client"
+]
+
+[tool.pytest.ini_options]
+markers = ["current: current test"]
+
+[tool.uv]
+default-groups = ["dev"]

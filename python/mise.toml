@@ -1,0 +1,11 @@
+min_version = "2025.1.0"
+
+[tools]
+python = "3.14"
+uv = "0.12.1"
+
+[tasks.install]
+run = "uv sync --locked"
+
+[tasks.test]
+run = "uv run pytest"

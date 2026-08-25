@@ -1,0 +1,29 @@
+version: '3'
+
+tasks:
+  default:
+    desc: Show available tasks
+    cmds: [task --list]
+  help:
+    desc: Show the C# workflow and available tasks
+    cmds: [task --list]
+  install:
+    desc: Restore NuGet dependencies
+    cmds: [dotnet restore csharp.sln]
+  test:
+    desc: Run .NET tests
+    cmds: [dotnet test csharp.sln]
+  cli:
+    desc: Run .NET tests without restoring
+    cmds: [dotnet test csharp.sln --no-restore]
+  build:
+    desc: Build the solution without restoring
+    cmds: [dotnet build csharp.sln --no-restore]
+  clean:
+    desc: Remove .NET build output
+    cmds: [dotnet clean csharp.sln]
+  docker:test:
+    desc: Build and run the test container
+    cmds:
+      - docker build --target test -t kata-csharp .
+      - docker run --rm kata-csharp

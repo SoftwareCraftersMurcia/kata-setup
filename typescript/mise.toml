@@ -1,0 +1,11 @@
+min_version = "2025.1.0"
+
+[tools]
+node = "26.7.0"
+"npm:pnpm" = "11.15.1"
+
+[tasks.install]
+run = "pnpm install --frozen-lockfile"
+
+[tasks.test]
+run = "pnpm test"

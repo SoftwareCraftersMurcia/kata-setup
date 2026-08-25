@@ -1,7 +1,8 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 
 plugins {
-    kotlin("jvm") version "1.6.10"
+    kotlin("jvm") version "2.4.10"
     application
 }
 
@@ -12,7 +13,7 @@ repositories {
     mavenCentral()
 }
 
-var mockKversion = "1.12.3"
+var mockKversion = "1.14.9"
 
 dependencies {
     testImplementation(kotlin("test"))
@@ -23,8 +24,11 @@ tasks.test {
     useJUnitPlatform()
 }
 
-tasks.withType<KotlinCompile>() {
-    kotlinOptions.jvmTarget = "1.8"
+kotlin {
+    jvmToolchain(26)
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_26)
+    }
 }
 
 application {

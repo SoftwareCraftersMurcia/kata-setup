@@ -1,0 +1,32 @@
+version: '3'
+
+tasks:
+  default:
+    desc: Show available tasks
+    cmds: [task --list]
+  help:
+    desc: Show the PHP workflow and available tasks
+    cmds: [task --list]
+  install:
+    desc: Install Composer dependencies from composer.lock
+    cmds: [composer install]
+  test:
+    desc: Run PHPUnit through Composer
+    cmds: [composer test]
+  cli:
+    desc: Run PHPUnit directly
+    cmds: [vendor/bin/phpunit]
+  coverage:
+    desc: Generate PHPUnit coverage
+    cmds: [composer test-coverage]
+  mutation:
+    desc: Run Infection mutation testing
+    cmds: [vendor/bin/infection --threads=4]
+  audit:
+    desc: Audit Composer dependencies
+    cmds: [composer audit]
+  docker:test:
+    desc: Build and run the test container
+    cmds:
+      - docker build --target test -t kata-php .
+      - docker run --rm kata-php

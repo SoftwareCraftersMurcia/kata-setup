@@ -1,0 +1,10 @@
+min_version = "2025.1.0"
+
+[tools]
+deno = "2.9.0"
+
+[tasks.install]
+run = "deno cache --frozen --lock=deno.lock src/kata.ts test/kata.test.ts"
+
+[tasks.test]
+run = "deno task test"

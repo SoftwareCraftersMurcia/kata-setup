@@ -1,0 +1,26 @@
+version: '3'
+
+tasks:
+  default:
+    desc: Show available tasks
+    cmds: [task --list]
+  help:
+    desc: Show the Java workflow and available tasks
+    cmds: [task --list]
+  install:
+    desc: Pre-fetch Maven dependencies
+    cmds: ['./mvnw -B dependency:go-offline']
+  test:
+    desc: Run Maven tests
+    cmds: ['./mvnw -B test']
+  cli:
+    desc: Run Maven tests directly
+    cmds: ['./mvnw -B test']
+  clean:
+    desc: Remove Maven build output
+    cmds: ['./mvnw -B clean']
+  docker:test:
+    desc: Build and run the test container
+    cmds:
+      - docker build --target test -t kata-java .
+      - docker run --rm kata-java
