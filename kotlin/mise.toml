@@ -1,0 +1,10 @@
+min_version = "2025.1.0"
+
+[tools]
+java = "temurin-26.0.2+10"
+
+[tasks.install]
+run = "./gradlew dependencies --no-daemon"
+
+[tasks.test]
+run = "./gradlew test --no-daemon"

@@ -1,0 +1,10 @@
+min_version = "2025.1.0"
+
+[tools]
+java = "temurin-26.0.2+10"
+
+[tasks.install]
+run = "./mvnw -B dependency:go-offline"
+
+[tasks.test]
+run = "./mvnw -B test"

@@ -1,0 +1,10 @@
+min_version = "2025.1.0"
+
+[tools]
+php = "8.5"
+
+[tasks.install]
+run = "composer install"
+
+[tasks.test]
+run = "composer test"

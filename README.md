@@ -4,7 +4,7 @@ Plantillas aisladas para practicar TDD y testing en JavaScript, TypeScript, Deno
 
 ## Experiencia rapida
 
-Instala [Task](https://taskfile.dev/installation/) y Docker. Cada proyecto es independiente y tiene su propio `Taskfile.yml` con las tareas de su ecosistema. El `Taskfile.yml` raiz ofrece ademas una interfaz uniforme.
+Instala [mise](https://mise.jdx.dev/installing-mise), [Task](https://taskfile.dev/installation/) y Docker. Cada proyecto es independiente y tiene su propio `mise.toml` y `Taskfile.yml` con las tareas de su ecosistema. Los `mise.toml` gestionan las versiones de las herramientas; el `Taskfile.yml` raiz ofrece una interfaz uniforme.
 
 ## Ayuda de Task
 
@@ -48,6 +48,72 @@ task docker:test
 
 Los comandos directos y el troubleshooting completo estan en el `README.md` de cada carpeta.
 
+## Experiencia con mise
+
+[mise](https://mise.jdx.dev/) gestiona las versiones de todas las herramientas desde archivos `mise.toml`. Cada sub-proyecto declara sus herramientas y tareas en su propio `mise.toml`.
+
+### Instalacion
+
+```bash
+curl https://mise.run | sh
+```
+
+### Activacion
+
+```bash
+# Bash
+echo 'eval "$(~/.local/bin/mise activate bash)"' >> ~/.bashrc
+
+# Zsh
+echo 'eval "$(~/.local/bin/mise activate zsh)"' >> ~/.zshrc
+
+# Fish
+echo '~/.local/bin/mise activate fish | source' >> ~/.config/fish/config.fish
+```
+
+Reiniciar la sesion del shell despues de modificar el archivo de configuracion.
+
+### Uso
+
+Desde cualquier sub-proyecto:
+
+```bash
+cd javascript
+mise install        # instala node y pnpm con las versiones correctas
+mise run install    # instala dependencias del proyecto
+mise run test       # ejecuta los tests
+```
+
+Desde la raiz, entrar en el sub-proyecto deseado:
+
+```bash
+cd python
+mise install
+mise run install
+mise run test
+```
+
+### Herramientas por sub-proyecto
+
+| Sub-proyecto | Herramientas gestionadas por mise |
+|---|---|
+| `javascript` | Node.js 26.7.0, pnpm 11.15.1 |
+| `typescript` | Node.js 26.7.0, pnpm 11.15.1 |
+| `typescript-deno` | Deno 2.9.0 |
+| `python` | Python 3.14, uv 0.12.1 |
+| `php` | PHP 8.5 |
+| `java` | JDK 26 (Eclipse Temurin EA) |
+| `kotlin` | JDK 26 (Eclipse Temurin EA) |
+| `scala` | JDK 26 (Eclipse Temurin EA), Scala 3.8.4, sbt 1.11.7 |
+| `csharp` | .NET SDK 10.0 (preview) |
+| `go` | Go 1.26 |
+
+### Notas
+
+- mise gestiona las versiones de los runtimes y herramientas de sistema. Los wrappers de los proyectos (`mvnw`, `gradlew`) siguen gestionando las versiones de los build tools (Maven, Gradle).
+- Los archivos `.nvmrc`, `.python-version` y `package.json` se mantienen para compatibilidad con nvm, fnm, uv y otros gestores.
+- Docker sigue siendo la validacion reproducible. mise es para desarrollo local.
+
 ## Proyectos
 
 - `javascript`: Node 26, pnpm, Vitest y Vite.
@@ -63,10 +129,16 @@ Los comandos directos y el troubleshooting completo estan en el `README.md` de c
 
 ## Gestores locales
 
-- Node: `nvm` o `fnm`.
-- Python: `uv`.
-- Java, Kotlin y Scala: SDKMAN!.
-- Go, PHP y .NET: gestor oficial o `mise` cuando sea compatible.
+- **[mise](https://mise.jdx.dev/)** (recomendado): gestiona todas las herramientas desde `mise.toml`.
+  ```bash
+  curl https://mise.run | sh
+  eval "$(mise activate bash)"  # o zsh/fish
+  cd javascript && mise install
+  ```
+- Node: `nvm` o `fnm` (alternativa a mise).
+- Python: `uv` (alternativa a mise).
+- Java, Kotlin y Scala: SDKMAN! (alternativa a mise).
+- Go, PHP y .NET: gestor oficial o `mise`.
 - Deno: instalador oficial o `mise`.
 
 Docker es autonomo y no depende de estos gestores del host.
@@ -89,6 +161,7 @@ Una validacion completa debe terminar sin errores en `task test:all` y `task doc
 
 ## Herramientas y decisiones
 
+- [mise](https://mise.jdx.dev/): gestiona las versiones de runtimes y herramientas de desarrollo desde archivos `mise.toml` por sub-proyecto. Sustituye la necesidad de multiples gestores (nvm, pyenv, SDKMAN!, etc.) con una sola herramienta polyglot.
 - [Task](https://taskfile.dev/): unifica las operaciones habituales sin ocultar los comandos propios de cada lenguaje. Cada proyecto tiene su propio `Taskfile.yml` y la raiz solo los orquesta.
 - [Docker](https://docs.docker.com/): permite ejecutar cada kata en un entorno aislado y reproducible. Los Dockerfiles usan tags de version explicitos, sin digests SHA-256, segun la politica del repositorio.
 - [pnpm](https://pnpm.io/): sustituye npm en JavaScript y TypeScript por su store y su instalacion basada en lockfile, reduciendo duplicacion y mejorando la trazabilidad de dependencias.
